@@ -13,6 +13,7 @@
     "express": "^4.16.4",
     "express-ejs-layouts": "^2.5.0",
     "morgan": "^1.9.1",
+    "notenv": "^2.0.3",
     "pg": "^7.18.1",
     "sequelize": "^5.21.4"
   }
