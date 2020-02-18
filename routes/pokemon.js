@@ -30,8 +30,6 @@ router.post('/', function(req, res) {
 
 //GET /pokemon/:id
 router.get('/:id', function(req, res) {
-
-
     // query model for pokemon with given ID in pokemon db
     var num = req.params.id;
 
@@ -41,7 +39,17 @@ router.get('/:id', function(req, res) {
         }
     }).then(function(pokemon) {
         // get name of db queried pokemon
-        // pass to api call via 
+        var pokemonUrl = `http://pokeapi.co/api/v2/pokemon/${pokemon.name}`;
+        // pass to api call via api url
+        axios.get(pokemonUrl)
+            .then(function(result) {
+                var pokeInfo = result.data;
+                res.render('pokemon/show', { pokemon: pokeInfo });
+            })
+            .catch(err => { console.log(err) })
+            .finally(function() {
+                console.log("Made it to the end successfully!!!")
+            })
     })
 })
 
