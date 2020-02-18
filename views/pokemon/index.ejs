@@ -1,7 +1,17 @@
-<ul>
+<!-- <ul>
     <% pokemons.forEach(function(pokemon){ %>
         <li>
             <%= pokemon.name %>
         </li>
         <%})%>
-</ul>
+</ul> -->
+
+<h1>Favorite Pokemons</h1>
+
+<% pokemons.forEach((pokemon) => { %>
+    <div class="well">
+        <a href="<%= pokemon.name %>">
+            <%= pokemon.name %>
+        </a>
+    </div>
+    <% }); %>
