@@ -1,6 +1,17 @@
-<h2>
-    <%= poke.order %> -
+<div class="container " align="center">
+    <h2>
         <%= poke.name %>
-</h2>
+    </h2>
 
-<img src="<%= poke.sprites.back_shiny %>">
+    <img src="<%= poke.sprites.front_shiny %>">
+
+    <div>
+        <h3>Abilities:</h3>
+
+        <% poke.abilities.forEach(function(t){ %>
+            <h4 class="<%= t.ability.name %>">
+                <%= t.ability.name %>
+            </h4>
+            <% }); %>
+    </div>
+</div>
